@@ -22,3 +22,9 @@ The sample data as a run of child nodes whose content repeats the pattern `4, 2,
 To aggregate those repeated sequences and produce a flame graph run: `aggregate -f sample.csv -l 10 | flame`.
 
 ![Aggregated sample data](aggregated-sample.png)
+
+# Notes and thanks
+
+Uses Jonathon Pryor's Mono.Options library for command line parsing.
+
+Uses Saar Shen's [FlameGraphNet](https://github.com/xiaomi7732/FlameGraphNet/tree/develop) library under the MIT licence.
