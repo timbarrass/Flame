@@ -62,7 +62,7 @@ class Program
 
     static void ShowHelp (OptionSet p)
     {
-        Console.WriteLine ("Usage: rtaggregate [OPTIONS]+");
+        Console.WriteLine ("Usage: aggregate [OPTIONS]+");
         Console.WriteLine ("Create a rose tree from an appropriately formatted file, then process");
         Console.WriteLine ("to identify repeated patterns and agregate them.");
         Console.WriteLine ("If no options are set, read from stdin.");
