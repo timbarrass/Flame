@@ -17,7 +17,7 @@ To generate an example flame graph, build the solution then `flame -f sample.csv
 ## Aggregating consecutive repeated sequences
 The input data's used to build a simple rose tree. In some cases a node might have a very large number of small-duration children which will take a long time to not be rendered on the flame chart. The `aggregate` tool processes the input data to identify repeated sequences in child nodes and aggregate them.
 
-The sample data as a run of child nodes whose content repeats the pattern `4, 2, 4, 2, ...`. We can automatically identify and aggregate these, replacing them with a single node that details the number of repeats, the total `Metric`, and the `Content` involved.
+The sample data as a run of child nodes whose content repeats the pattern `4, 5, 6, 7, 4, 5, 6, 7, ... etc`. We can automatically identify and aggregate these, replacing them with a single node that details the number of repeats, the total `Metric`, and the `Content` involved.
 
 To aggregate those repeated sequences and produce a flame graph run: `aggregate -f sample.csv -l 10 | flame`.
 
