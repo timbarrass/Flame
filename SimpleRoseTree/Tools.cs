@@ -47,10 +47,17 @@ public static class Tools
                 // for each block, create an aggregate node
                 foreach (var block in blocks.Value)
                 {
+                    // work out sum for each component
+                    var breakdown = node.Children
+                        .Skip(block.First())
+                        .Take(block.Count() * blocks.Key.Count())
+                        .GroupBy(c => c.Content)
+                        .ToDictionary(g => g.Key, g => g.Sum(n => n.Metric));
+
                     var aggregate = new Node
                     {
                         Id = node.Children[block.First()].Id,
-                        Content = $"({block.Count()})" + string.Join("|", blocks.Key),
+                        Content = $"({block.Count()}) " + string.Join("|", blocks.Key.Select(k => $"{k} ({breakdown[k]})")),
                         Children = new List<Node>(),
                         Metric = node.Children
                             .Skip(block.First())
